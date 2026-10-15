@@ -1,0 +1,43 @@
+On doit créer une application de gestion de mangas et animes.
+Cette application possède un système de notation, ainsi que des listes personnalisées et recommandations.
+
+Le travail à faire est répartit dans des tickets du projet gitlab.
+Ces tickets sont distribués entre les différents membres d'équipe.
+1 ticket = 1 question à réaliser
+Chaque commit doit mentionner le ticket rattaché
+Si on revient sur le contenu d'un ticket fermé, on en ouvre un nouveau au lieu de revenir/rouvrir l'ancient.
+
+Chaque étape/jalon est représenté par un énoncé de TP et permet de mettre en place une fonctionnalité de l'application.
+On doit faire un tag pour chacun de ces jalons.
+Chacun de ces tags doit inclure un bilan de l'étape dans le fichier README.
+Ce bilan contient un tableau indiquant “qui a fait quoi” ainsi qu'un retour d’expérience sur les outils utilisés et les objectifs atteints par rapport aux tickets.
+
+La branche main contient la version stable de notre application.
+L'enseignant clonera cette branche pour évaluer notre travail.
+On utilise une branche dev qui contient la version en cours de développement.
+On crée des branches à partir de dev pour travailler sur nos tickets. Ces branches devront porter le nom/numéro du ticket.
+Une fois le travail terminé, on merge request sur la branche dev.
+Un autre membre d'équipe doit alors relire le code et valider la requête avant de l'intégrer dans dev.
+Lorsque que dev est stable (pas bug, tout fonctionne, un jalon est terminé) on peut la fusionner dans main.
+
+=======================================================================================================================
+
+Les règles suivantes sont impératives et seront vérifiées lors de l’évaluation:
+    - Chaque membre de l’équipe devra faire au moins 25% des commits.
+    - Chaque membre de l’équipe devra relire et valider au moins une merge request d’un autre membre de l’équipe.
+    - Chaque membre de l’équipe devra être affecté à au moins un ticket. Essayez de faire des commits atomiques pour pouvoir revenir en arrière facilement.
+    - Chaque ticket devra être pris en charge par un seul membre de l’équipe.
+    - Chaque commit devra faire référence à un ticket.
+    - Dès qu’un ticket est terminé, une merge request devra être créée pour intégrer le travail dans la branche dev.
+    - La merge request devra être relue et validée par un autre membre de l’équipe avant d’être intégrée dans la branche dev.
+    - Après validation du ticket, il devra être fermé.
+    - Si un ticket doit être repris et corrigé, un nouveau ticket devra être créé qui fera référence au ticket initial.
+
+
+Une grille d'évaluation sera utilisée à la fin du semestre afin de donner une note individuelle à notre réalisation.
+L'usage de l'IA est autorisé mais ne suffit pas pour obtenir une bonne note. En effet, plus que la qualité du code présenté, c'est la compréhension de ce code, la capacité à le modifier et à en expliquer les mécanismes qui sont évaluées.
+L'évaluation de la note est répartie selon les critères suivants:
+    - 30% sur le côté fonctionnel de l'application (le code marche).
+    - 40% sur la compréhension du code et la capacité à l'expliquer ainsi que le modifier lors du passage à l'oral.
+    - 20% sur la qualité du code (respect des conventions Laravel) et l'historique Git (commits atomique et explicites).
+    - 10% sur la note d'intention (fait 1 page maximum et contient les choix techniques, les difficultés rencontrées et le recul critique, elle doit être remise à la fin de chaque jalon).
