@@ -11,4 +11,3 @@ Route::get('/oeuvres', [OeuvreController::class, 'index'])->name('oeuvres.index'
 
 Route::view('/contact', 'contact')->name('contact');
 
-//Route::get('/test-flash', fn () => redirect('/oeuvres')->with('success', 'Message de test'));
