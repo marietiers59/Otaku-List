@@ -26,6 +26,9 @@
                     </button>
                     <div x-show="open" @click.outside="open = false"
                          class="absolute right-0 mt-2 w-48 rounded border bg-white shadow">
+                        <a href="{{ route('profil.show') }}" class="block px-4 py-2 hover:bg-gray-100">
+                            <i class="fa-solid fa-id-card"></i> Profil
+                        </a>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="w-full px-4 py-2 text-left hover:bg-gray-100">
