@@ -12,4 +12,9 @@ class OeuvreController extends Controller
 
         return view('oeuvres.index', compact('oeuvres'));
     }
+
+    public function show(Oeuvre $oeuvre)
+    {
+        return view('oeuvres.show', compact('oeuvre'));
+    }
 }

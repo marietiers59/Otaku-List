@@ -1,5 +1,5 @@
 @props(['oeuvre'])
-<div class="p-4 bg-white rounded shadow">
+<a href="{{ route('oeuvres.show', $oeuvre) }}" class="block p-4 bg-white rounded shadow hover:shadow-md">
     <h2 class="font-bold">{{ $oeuvre->titre }} ({{ $oeuvre->annee }})</h2>
     <p class="text-sm">{{ $oeuvre->studio }} - {{ $oeuvre->status }} - {{ $oeuvre->note }}/5</p>
-</div>
+</a>

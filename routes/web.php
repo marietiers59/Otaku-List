@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'accueil')->name('accueil');
 Route::view('/presentation', 'presentation')->name('presentation');
 
-Route::get('/oeuvres', [OeuvreController::class, 'index'])->name('oeuvres.index');
+Route::resource('oeuvres', OeuvreController::class)->only(['index', 'show']);
 
 Route::view('/contact', 'contact')->name('contact');
 
