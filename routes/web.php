@@ -16,3 +16,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('profil.edit');
     Route::put('/profil', [ProfilController::class, 'update'])->name('profil.update');
 });
+
+Route::resource('oeuvres', OeuvreController::class)->only(['index', 'show', 'create', 'store']);
