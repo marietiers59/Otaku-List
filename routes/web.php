@@ -4,9 +4,8 @@ use App\Http\Controllers\OeuvreController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'accueil')->name('accueil');
+Route::view('/presentation', 'presentation')->name('presentation');
 
 Route::get('/oeuvres', [OeuvreController::class, 'index'])->name('oeuvres.index');
 
