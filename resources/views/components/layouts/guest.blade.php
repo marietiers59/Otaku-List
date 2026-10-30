@@ -12,6 +12,7 @@
 </header>
 
 <main class="mx-auto max-w-md p-4">
+    <x-partials.flash-messages />
     @if ($errors->any())
         <x-partials.alert type="error" title="Le formulaire contient des erreurs." class="mb-4">
             <ul class="list-disc list-inside">
