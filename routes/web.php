@@ -8,3 +8,5 @@ Route::get('/', function () {
 });
 
 Route::get('/oeuvres', [OeuvreController::class, 'index'])->name('oeuvres.index');
+
+Route::view('/contact', 'contact')->name('contact');
