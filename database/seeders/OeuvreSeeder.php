@@ -2,16 +2,23 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Oeuvre;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class OeuvreSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        $path = database_path('seeders/data/oeuvres.json');
+
+        if (File::exists($path)) {
+            $oeuvres = json_decode(File::get($path), true);
+            foreach ($oeuvres as $oeuvre) {
+                Oeuvre::create($oeuvre);
+            }
+        } else {
+            Oeuvre::factory(20)->create();
+        }
     }
 }
