@@ -9,8 +9,8 @@
 <body class="bg-gray-50 text-gray-800">
 <header class="p-4 bg-white shadow">
     <nav class="flex gap-4">
-        <a href="/">Accueil</a>
-        <a href="{{ route('oeuvres.index') }}">Oeuvres</a>
+        <a href="/"><i class="fa-solid fa-house"></i> Accueil</a>
+        <a href="{{ route('oeuvres.index') }}"><i class="fa-solid fa-book-open"></i> Oeuvres</a>
     </nav>
 </header>
 <main class="p-4">{{ $slot }}</main>
