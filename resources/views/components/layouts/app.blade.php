@@ -9,8 +9,10 @@
 <body class="bg-gray-50 text-gray-800">
 <header class="p-4 bg-white shadow">
     <nav class="flex items-center gap-4">
-        <a href="/"><i class="fa-solid fa-house"></i> Accueil</a>
+        <a href="{{ route('accueil') }}"><i class="fa-solid fa-house"></i> Accueil</a>
         <a href="{{ route('oeuvres.index') }}"><i class="fa-solid fa-book-open"></i> Oeuvres</a>
+        <a href="{{ route('presentation') }}"><i class="fa-solid fa-circle-info"></i> Présentation</a>
+        <a href="{{ route('contact') }}"><i class="fa-solid fa-envelope"></i> Contact</a>
 
         <div class="ml-auto flex items-center gap-4">
             @guest
