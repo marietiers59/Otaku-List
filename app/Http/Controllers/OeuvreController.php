@@ -7,11 +7,20 @@ use Illuminate\Http\Request;
 
 class OeuvreController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $oeuvres = Oeuvre::orderBy('titre')->get();
+        $source = $request->query();
 
-        return view('oeuvres.index', compact('oeuvres'));
+        // On garde seulement les valeurs valides : un statut connu, une année entière
+        $filtres = [
+            'status' => in_array($source['status'] ?? null, array_keys(Oeuvre::STATUTS), true) ? $source['status'] : null,
+            'annee' => filter_var($source['annee'] ?? null, FILTER_VALIDATE_INT) ?: null,
+        ];
+
+        $oeuvres = Oeuvre::filtre($filtres['status'], $filtres['annee'])->orderBy('titre')->get();
+        $annees = Oeuvre::orderByDesc('annee')->distinct()->pluck('annee');
+
+        return view('oeuvres.index', compact('oeuvres', 'filtres', 'annees'));
     }
 
     public function show(Oeuvre $oeuvre)
