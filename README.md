@@ -1,102 +1,71 @@
-# Projet Otaku List groupe B4 R3.01-03
+# OtakuList — Groupe B4
 
+Application Laravel de consultation et de gestion d'animes et de mangas, réalisée dans le cadre des ressources R3.01 et R3.03 du BUT Informatique (IUT de Lens).
 
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-* [Create](https://docs.gitlab.com/user/project/repository/web_editor/#create-a-file) or [upload](https://docs.gitlab.com/user/project/repository/web_editor/#upload-a-file) files
-* [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-* [Set up project integrations](https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03/-/settings/integrations)
-
-## Collaborate with your team
-
-* [Invite team members and collaborators](https://docs.gitlab.com/user/project/members/)
-* [Create a new merge request](https://docs.gitlab.com/user/project/merge_requests/creating_merge_requests/)
-* [Automatically close issues from merge requests](https://docs.gitlab.com/user/project/issues/managing_issues/#closing-issues-automatically)
-* [Enable merge request approvals](https://docs.gitlab.com/user/project/merge_requests/approvals/)
-* [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-* [Get started with GitLab CI/CD](https://docs.gitlab.com/ci/quick_start/)
-* [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/user/application_security/sast/)
-* [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/topics/autodevops/requirements/)
-* [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/user/clusters/agent/)
-* [Set up protected environments](https://docs.gitlab.com/ci/environments/protected_environments/)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+**Groupe B4** : Ikram Alouli, Thibault Breguet, Aurora Thellier, Marie Tiers.
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+```bash
+git clone https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03.git
+cd projet-otaku-list_groupe-b4_r3.01-03
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+touch database/database.sqlite   # base SQLite par défaut
+php artisan migrate:fresh --seed
+composer run dev
+```
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Comptes de test (mot de passe : `password`)
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+| Rôle | E-mail |
+| --- | --- |
+| Utilisateur | test@example.com |
+| Contributeur | contributeur@example.com |
+| Administrateur | admin@example.com |
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+## Jalons
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+| Jalon | Tag | État |
+| --- | --- | --- |
+| 1. Fondations (base) | [jalon-1](https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03/-/tags/jalon-1) | Terminé |
+| 2. Authentification | [jalon-2](https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03/-/tags/jalon-2) | Fonctionnel, partie secondaire non faite |
+| 3. CRUD et contrôle d'accès | [jalon-3](https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03/-/tags/jalon-3) | Terminé (gestion des utilisateurs : liste seulement) |
+| 4. Studios, épisodes, médias | — | Non réalisé |
+| 5. Genres, avis, lectures | — | Non réalisé |
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+## Qui a fait quoi
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+| Membre | Tâches réalisées | Tickets réalisés | Relectures assignées |
+| --- | --- | --- | --- |
+| Marie Tiers | Création du dépôt, découpage en tickets, développement des jalons 1 à 3 | #2 à #8, #10 à #13, #15, #19, #20, #23 à #30, #50 | — |
+| Thibault Breguet | — | — | #4, #6, #7, #12, #20, #26, #29, #50 |
+| Ikram Alouli | — | — | #5, #8, #10, #13, #19, #23, #27, #30 |
+| Aurora Thellier | Ajout du fichier de consignes | — | #2, #3, #11, #15, #24, #25, #28 |
 
-## License
-For open source projects, say how it is licensed.
+## Retour d'expérience
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
-==================
+- **Outils** : GitLab (tickets, une branche `issue-N` par ticket, merge requests vers `dev`, fusion de `dev` dans `main` en fin de jalon), PhpStorm, `composer run dev` (serveur et Vite en parallèle). Un assistant d'IA a servi de guide pour comprendre les notions et structurer le travail. Chaque ticket a été testé et compris avant d'être fusionné.
+- **Objectifs atteints** : les jalons 1 à 3 tournent. Le rendu ayant été fixé au 1er novembre, et le travail ayant reposé sur une seule personne, nous avons choisi de livrer trois jalons maîtrisés plutôt que cinq jalons fragiles.
 
-Déroulé du projet
-15/10/2026 - Jalon 1
-Marie
-1) Création du projet Laravel
-2) Push du projet Laravel dans GitLab
-3) Création de 8 tickets - Issues de type Task
-4) Création d'un jalon, le 1 - Milestone
+## Notes d'intention
+
+### Jalon 1 : Fondations
+**Choix techniques.** Layout Blade sous forme de composant (`x-layouts.app`) et Tailwind compilé par Vite. Pages statiques en `Route::view`. Modèle `Oeuvre` avec migration, fabrique et seeder : celui-ci lit un fichier JSON s'il existe, sinon il génère 20 œuvres. La liste utilise des composants réutilisables (`oeuvre-grid`, `oeuvre-card`). Le filtre passe par un formulaire en GET, pour que l'URL soit partageable, et par un *scope* local `filtre()` dans le modèle, pour que le contrôleur reste lisible. Le dernier filtre est mémorisé 30 jours dans un cookie chiffré par Laravel, et effacé par le bouton « Réinitialiser ».
+**Difficultés.** Mise en place du dépôt (commande lancée dans le mauvais dossier, push refusé à cause d'un commit concurrent). Sur une page en GET, `validate()` peut boucler en redirigeant vers la même page : les valeurs du filtre sont donc nettoyées plutôt que validées.
+**Recul critique.** Le filtre se limite au statut et à l'année, et la liste n'a pas de pagination.
+
+### Jalon 2 : Authentification
+**Choix techniques.** Alpine.js et FontAwesome. Un composant d'alerte unique (`x-partials.alert`) sert aux erreurs de validation des deux layouts et aux messages flash. Fortify gère l'inscription et la connexion avec nos propres vues Blade. Le menu s'adapte grâce à `@auth` et `@guest`. La page profil permet de modifier son compte ; changer de mot de passe exige le mot de passe actuel. Une mise à jour de sécurité de `symfony/mime` a été appliquée (#50).
+**Difficultés.** Comprendre ce que Fortify fournit (routes, logique) et ce qui reste à écrire (les vues).
+**Recul critique.** Non réalisé, par choix de priorité : messages d'erreur en français (#14), inscription avec nom et prénom (#16), réinitialisation du mot de passe et e-mails (#17, #18, #21).
+
+### Jalon 3 : CRUD des œuvres et contrôle d'accès
+**Choix techniques.** `Route::resource` pour les sept actions. Règles de validation communes à la création et à la modification. Redirection après chaque envoi de formulaire, puis message flash (motif PRG). Le formulaire de modification réutilise le composant de champs, pré-rempli avec `old()`. La suppression passe par un composant `oeuvre-delete` réutilisable, avec une fenêtre de confirmation en Alpine. Les rôles sont stockés dans une colonne `role`, avec une seule valeur retenue, `admin`, car les énoncés se contredisaient ; `role` est volontairement exclu de `$fillable` pour qu'on ne puisse pas devenir administrateur via le formulaire d'inscription. Les droits reposent sur trois mécanismes : la policy `OeuvrePolicy` (ajout, modification et suppression réservés aux contributeurs et administrateurs, `@can` dans les vues), le middleware `auth` sur toutes les routes sauf la liste, et la gate `manage-users` qui réserve la liste des utilisateurs à l'administrateur.
+**Difficultés.** `/oeuvres/create` était intercepté par la route `oeuvres/{oeuvre}`, à cause d'une double déclaration de `Route::resource` : corrigé en #25. Depuis Laravel 11, `$this->authorize()` impose d'ajouter le trait `AuthorizesRequests` au contrôleur de base.
+**Recul critique.** La gestion des utilisateurs (#31, optionnelle) se limite à une liste, sans modification des rôles.
+
+### Jalons 4 et 5 : non réalisés
+Studios, épisodes, médias, genres, avis et lectures (#33 à #48) n'ont pas été développés. Nous avons préféré livrer trois jalons fonctionnels et compris. Les tickets restent ouverts et prêts, avec leurs dépendances, pour une suite du projet.
