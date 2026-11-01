@@ -43,21 +43,37 @@ class OeuvreController extends Controller
         return view('oeuvres.create');
     }
 
-    public function store(Request $request)
+    /** Règles communes à la création et à la modification */
+    private function regles(): array
     {
-        $validated = $request->validate([
+        return [
             'titre' => ['required', 'string', 'max:255'],
             'synopsis' => ['required', 'string'],
             'annee' => ['required', 'integer', 'between:1900,2100'],
-            'status' => ['required', 'in:en_cours,termine,a_venir'],
+            'status' => ['required', 'in:' . implode(',', array_keys(Oeuvre::STATUTS))],
             'nb_episodes_tomes' => ['nullable', 'integer', 'min:1'],
             'studio' => ['required', 'string', 'max:255'],
             'image' => ['nullable', 'url', 'max:255'],
             'note' => ['required', 'numeric', 'between:0,5'],
-        ]);
+        ];
+    }
 
-        Oeuvre::create($validated);
+    public function store(Request $request)
+    {
+        Oeuvre::create($request->validate($this->regles()));
 
         return redirect()->route('oeuvres.index')->with('success', 'Oeuvre créée avec succès.');
+    }
+
+    public function edit(Oeuvre $oeuvre)
+    {
+        return view('oeuvres.edit', compact('oeuvre'));
+    }
+
+    public function update(Request $request, Oeuvre $oeuvre)
+    {
+        $oeuvre->update($request->validate($this->regles()));
+
+        return redirect()->route('oeuvres.show', $oeuvre)->with('success', 'Oeuvre modifiée avec succès.');
     }
 }
