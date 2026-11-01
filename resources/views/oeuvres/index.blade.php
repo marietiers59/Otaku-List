@@ -1,9 +1,11 @@
 <x-layouts.app>
     <div class="mb-4 flex items-center justify-between">
         <h1 class="text-2xl font-bold">Les oeuvres</h1>
-        <a href="{{ route('oeuvres.create') }}" class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
-            <i class="fa-solid fa-plus"></i> Ajouter une oeuvre
-        </a>
+        @can('create', \App\Models\Oeuvre::class)
+            <a href="{{ route('oeuvres.create') }}" class="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+                <i class="fa-solid fa-plus"></i> Ajouter une oeuvre
+            </a>
+        @endcan
     </div>
     <form method="GET" action="{{ route('oeuvres.index') }}"
           class="mb-6 flex flex-wrap items-end gap-4 rounded bg-white p-4 shadow">

@@ -40,6 +40,7 @@ class OeuvreController extends Controller
 
     public function create()
     {
+        $this->authorize('create', Oeuvre::class);
         return view('oeuvres.create');
     }
 
@@ -60,6 +61,7 @@ class OeuvreController extends Controller
 
     public function store(Request $request)
     {
+        $this->authorize('create', Oeuvre::class);
         Oeuvre::create($request->validate($this->regles()));
 
         return redirect()->route('oeuvres.index')->with('success', 'Oeuvre créée avec succès.');
@@ -67,11 +69,13 @@ class OeuvreController extends Controller
 
     public function edit(Oeuvre $oeuvre)
     {
+        $this->authorize('update', $oeuvre);
         return view('oeuvres.edit', compact('oeuvre'));
     }
 
     public function update(Request $request, Oeuvre $oeuvre)
     {
+        $this->authorize('update', $oeuvre);
         $oeuvre->update($request->validate($this->regles()));
 
         return redirect()->route('oeuvres.show', $oeuvre)->with('success', 'Oeuvre modifiée avec succès.');
@@ -79,6 +83,7 @@ class OeuvreController extends Controller
 
     public function destroy(Oeuvre $oeuvre)
     {
+        $this->authorize('delete', $oeuvre);
         $oeuvre->delete();
 
         return redirect()->route('oeuvres.index')->with('success', "L'oeuvre « {$oeuvre->titre} » a été supprimée.");
