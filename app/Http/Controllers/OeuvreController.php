@@ -76,4 +76,11 @@ class OeuvreController extends Controller
 
         return redirect()->route('oeuvres.show', $oeuvre)->with('success', 'Oeuvre modifiée avec succès.');
     }
+
+    public function destroy(Oeuvre $oeuvre)
+    {
+        $oeuvre->delete();
+
+        return redirect()->route('oeuvres.index')->with('success', "L'oeuvre « {$oeuvre->titre} » a été supprimée.");
+    }
 }
