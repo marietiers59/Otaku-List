@@ -17,11 +17,14 @@
 
         <div class="md:col-span-2 space-y-2">
             <h1 class="text-3xl font-bold">{{ $oeuvre->titre }}</h1>
-            <a href="{{ route('oeuvres.edit', $oeuvre) }}" class="inline-block rounded border px-3 py-1 text-sm">
-                <i class="fa-solid fa-pen"></i> Modifier
-            </a>
+            <div class="flex gap-2">
+                <a href="{{ route('oeuvres.edit', $oeuvre) }}" class="inline-block rounded border px-3 py-1 text-sm">
+                    <i class="fa-solid fa-pen"></i> Modifier
+                </a>
+                <x-oeuvre-delete :oeuvre="$oeuvre" />
+            </div>
             <p><span class="font-medium">Année :</span> {{ $oeuvre->annee }}</p>
-            <p><span class="font-medium">Statut :</span> {{ $oeuvre->status }}</p>
+            <p><span class="font-medium">Statut :</span> {{ \App\Models\Oeuvre::STATUTS[$oeuvre->status] ?? $oeuvre->status }}</p>
             <p><span class="font-medium">Studio :</span> {{ $oeuvre->studio }}</p>
             <p><span class="font-medium">Épisodes ou tomes :</span> {{ $oeuvre->nb_episodes_tomes ?? 'non renseigné' }}</p>
             <p><span class="font-medium">Note :</span> {{ $oeuvre->note }}/5</p>
