@@ -31,6 +31,11 @@
                         <a href="{{ route('profil.show') }}" class="block px-4 py-2 hover:bg-gray-100">
                             <i class="fa-solid fa-id-card"></i> Profil
                         </a>
+                        @can('manage-users')
+                            <a href="{{ route('utilisateurs.index') }}" class="block px-4 py-2 hover:bg-gray-100">
+                                <i class="fa-solid fa-users"></i> Utilisateurs
+                            </a>
+                        @endcan
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="w-full px-4 py-2 text-left hover:bg-gray-100">
