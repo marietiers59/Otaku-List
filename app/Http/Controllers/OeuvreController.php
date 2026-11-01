@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Oeuvre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class OeuvreController extends Controller
 {
     public function index(Request $request)
     {
-        $source = $request->query();
+        // #8 : sans filtre dans l'URL, on reprend celui mémorisé dans le cookie
+        $source = $request->hasAny(['status', 'annee'])
+            ? $request->query()
+            : (json_decode($request->cookie('filtre_oeuvres', '[]'), true) ?: []);
 
-        // On garde seulement les valeurs valides : un statut connu, une année entière
         $filtres = [
             'status' => in_array($source['status'] ?? null, array_keys(Oeuvre::STATUTS), true) ? $source['status'] : null,
             'annee' => filter_var($source['annee'] ?? null, FILTER_VALIDATE_INT) ?: null,
@@ -19,6 +22,13 @@ class OeuvreController extends Controller
 
         $oeuvres = Oeuvre::filtre($filtres['status'], $filtres['annee'])->orderBy('titre')->get();
         $annees = Oeuvre::orderByDesc('annee')->distinct()->pluck('annee');
+
+        // #8 : on mémorise le filtre 30 jours, ou on l'efface s'il est vide
+        if (array_filter($filtres)) {
+            Cookie::queue('filtre_oeuvres', json_encode($filtres), 60 * 24 * 30);
+        } else {
+            Cookie::queue(Cookie::forget('filtre_oeuvres'));
+        }
 
         return view('oeuvres.index', compact('oeuvres', 'filtres', 'annees'));
     }
