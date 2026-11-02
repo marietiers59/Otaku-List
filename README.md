@@ -7,8 +7,8 @@ Application Laravel de consultation et de gestion d'animes et de mangas, réalis
 ## Installation
 
 ```bash
-git clone https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03.git
-cd projet-otaku-list_groupe-b4_r3.01-03
+git clone https://github.com/marietiers59/Otaku-List.git
+cd Otaku-List
 composer install
 npm install
 cp .env.example .env
@@ -30,9 +30,9 @@ composer run dev
 
 | Jalon | Tag | État |
 | --- | --- | --- |
-| 1. Fondations (base) | [jalon-1](https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03/-/tags/jalon-1) | Terminé |
-| 2. Authentification | [jalon-2](https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03/-/tags/jalon-2) | Fonctionnel, partie secondaire non faite |
-| 3. CRUD et contrôle d'accès | [jalon-3](https://gitlab.univ-artois.fr/marie_tiers/projet-otaku-list_groupe-b4_r3.01-03/-/tags/jalon-3) | Terminé (gestion des utilisateurs : liste seulement) |
+| 1. Fondations (base) | [jalon-1](https://github.com/marietiers59/Otaku-List/tree/jalon-1) | Terminé |
+| 2. Authentification | [jalon-2](https://github.com/marietiers59/Otaku-List/tree/jalon-2) | Fonctionnel, partie secondaire non faite |
+| 3. CRUD et contrôle d'accès | [jalon-3](https://github.com/marietiers59/Otaku-List/tree/jalon-3) | Terminé (gestion des utilisateurs : liste seulement) |
 | 4. Studios, épisodes, médias | — | Non réalisé |
 | 5. Genres, avis, lectures | — | Non réalisé |
 
